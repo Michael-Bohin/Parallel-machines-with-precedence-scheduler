@@ -2,7 +2,31 @@
 using static System.Console;
 
 class Logger {
-	public static void Jobs(List<string> toRecompute) {
+	public List<string> jobsToString;
+
+	public Logger(List<string> jobsToString) {
+		this.jobsToString = jobsToString;
+	}
+
+	public void Jobs(List<Job> jobs, string fileName) {
+		StringBuilder sb = new();
+		foreach (Job job in jobs) {
+			sb.AppendLine($"{job.ToString(jobsToString)}");
+			sb.AppendLine($"{job}");
+			sb.AppendLine();
+		}
+
+		string total = $"Loaded {jobs.Count} jobs from file {fileName}.";
+		sb.AppendLine($"\n{total}");
+
+		using StreamWriter sw = new($"./out/parsedJobs-{fileName}.txt");
+		sw.WriteLine($"{sb}");
+		sw.Close();
+
+		WriteLine(total);
+	}
+
+	/*public void ToRecompute(List<int> toRecompute) {
 		toRecompute.Sort(); // requirement from specification to return dependencies sorted
 
 		StringBuilder sb = new();
@@ -19,7 +43,7 @@ class Logger {
 		WriteLine(result);
 	}
 
-	public static void Schedule(List<ScheduleUnit> schedule) {
+	public void Schedule(List<ScheduleUnit> schedule) {
 		StringBuilder sb = new();
 		foreach (ScheduleUnit unit in schedule) {
 			sb.AppendLine($"{unit}");
@@ -32,6 +56,6 @@ class Logger {
 
 		WriteLine($"\nSchedules tasks: {schedule.Count}");
 		WriteLine(result);
-	}
+	}*/
 }
 

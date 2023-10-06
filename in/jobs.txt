@@ -1,0 +1,453 @@
+LastShark	10
+LastMantis	22	LastShark
+LastHawk	10
+LastLizard	5	LastHawk
+LastOlympus	35
+LastDarling	10	LastLizard	LastMantis
+LastSunburn	20	LastDarling	LastMantis
+LastDigger	15	LastMantis	LastSunburn
+LastOmega	55	LastDigger
+LastPhoenix	15	LastOmega
+LastBalboa	45	LastDigger
+LastKnight	45	LastDigger
+LastGhost	25	LastSunburn
+LastDasher	30	LastGhost
+LastCaravan	10	LastOmega	LastPhoenix	LastBalboa	LastKnight	LastDasher	LastOmega
+LastBulldog	15	LastCaravan
+LastMamba	30	LastBulldog
+LastLuna	15	LastMamba	GlassMamba	KindMamba
+LastCobra	25	LastLuna
+LastPacker	20	LastCobra
+LastMaple	20	LastPacker
+LastCrown	12	LastCobra
+LastTailor	5	LastCrown
+LastLurker	20	LastCobra
+LastCookie	5	LastSunburn
+LastTower	20	LastLurker	LastCookie
+LastVolcano	18	LastMaple
+LastWarrior	26	LastVolcano
+LastTraveler	15	LastPacker
+LastMercury	80	LastTraveler	LastWarrior	LastTower	LastMaple
+LastPrivacy	10	LastMercury	LastTailor
+LastClick	10	LastMaple
+LastNote	10	LastClick
+BlindShark	10
+BlindMantis	22	BlindShark
+BlindHawk	10
+BlindLizard	5	BlindHawk
+BlindOlympus	35
+BlindDarling	10	BlindLizard	BlindMantis
+BlindSunburn	20	BlindDarling	BlindMantis
+BlindDigger	15	BlindMantis	BlindSunburn
+BlindOmega	55	BlindDigger
+BlindPhoenix	15	BlindOmega
+BlindBalboa	45	BlindDigger
+BlindKnight	45	BlindDigger
+BlindGhost	25	BlindSunburn
+BlindDasher	30	BlindGhost
+BlindCaravan	10	BlindOmega	BlindPhoenix	BlindBalboa	BlindKnight	BlindDasher	BlindOmega
+BlindBulldog	15	BlindCaravan
+BlindMamba	30	BlindBulldog
+BlindLuna	15	BlindMamba	DeliriousMamba	GloriousMamba
+BlindCobra	25	BlindLuna
+BlindPacker	20	BlindCobra
+BlindMaple	20	BlindPacker
+BlindCrown	12	BlindCobra
+BlindTailor	5	BlindCrown
+BlindLurker	20	BlindCobra
+BlindCookie	5	BlindSunburn
+BlindTower	20	BlindLurker	BlindCookie
+BlindVolcano	18	BlindMaple	BlackMaple	WhiteMaple
+BlindWarrior	26	BlindVolcano
+BlindTraveler	15	BlindPacker
+BlindMercury	80	BlindTraveler	BlindWarrior	BlindTower	BlindMaple	BlackMaple	WhiteMaple
+BlindPrivacy	10	BlindMercury	BlindTailor
+BlindClick	10	BlindMaple	BlackMaple	WhiteMaple
+BlindNote	10	BlindClick
+GlassShark	40
+GlassMantis	88	GlassShark
+GlassHawk	40
+GlassLizard	20	GlassHawk
+GlassOlympus	140
+GlassDarling	40	GlassLizard	GlassMantis
+GlassSunburn	80	GlassDarling	GlassMantis
+GlassDigger	60	GlassMantis	GlassSunburn
+GlassOmega	220	GlassDigger
+GlassPhoenix	60	GlassOmega
+GlassBalboa	180	GlassDigger
+GlassGhost	100	GlassSunburn
+GlassDasher	120	GlassGhost
+GlassCaravan	40	GlassOmega	GlassPhoenix	GlassBalboa	GlassDasher	GlassOmega
+GlassBulldog	60	GlassCaravan
+GlassMamba	120	GlassBulldog
+GlassLuna	60	GlassMamba	FrugalMamba	KindMamba
+GlassCobra	100	GlassLuna
+GlassPacker	80	GlassCobra
+GlassLumrk	55	GlassPacker
+GlassLachtan	55	GlassPacker
+GlassRuler	55	GlassPacker
+GlassEva	55	GlassPacker
+GlassGang	55	GlassPacker
+GlassStudio	55	GlassPacker
+GlassBee	55	GlassPacker
+GlassRibbon	55	GlassPacker
+GlassKey	55	GlassPacker
+GlassMaple	80	GlassPacker
+GlassCrown	48	GlassCobra
+GlassTailor	20	GlassCrown
+GlassLurker	80	GlassCobra
+GlassCookie	20	GlassSunburn
+GlassTower	80	GlassLurker	GlassCookie
+GlassVolcano	72	GlassMaple
+GlassWarrior	104	GlassVolcano
+GlassTraveler	60	GlassPacker
+GlassMercury	320	GlassTraveler	GlassWarrior	GlassTower	GlassMaple
+GlassPrivacy	40	GlassMercury	GlassTailor	GlassEva	GlassStudio	GlassRibbon	GlassKey
+GlassClick	40	GlassMaple
+GlassNote	40	GlassClick
+KindShark	60
+KindMantis	132	KindShark
+KindHawk	60
+KindLizard	30	KindHawk
+KindOlympus	210
+KindDarling	60	KindLizard	KindMantis
+KindSunburn	120	KindDarling	KindMantis
+KindDigger	90	KindMantis	KindSunburn
+KindOmega	330	KindDigger
+KindPhoenix	90	KindOmega
+KindBalboa	270	KindDigger
+KindGhost	150	KindSunburn
+KindDasher	180	KindGhost
+KindCaravan	60	KindOmega	KindPhoenix	KindBalboa	KindDasher	KindOmega
+KindBulldog	90	KindCaravan
+KindMamba	180	KindBulldog
+KindLuna	90	KindMamba	FrugalMamba	GlassMamba
+KindCobra	150	KindLuna
+KindPacker	120	KindCobra
+KindLumrk	55	KindPacker
+KindLachtan	55	KindPacker
+KindRuler	55	KindPacker
+KindEva	55	KindPacker
+KindGang	55	KindPacker
+KindStudio	55	KindPacker
+KindBee	55	KindPacker
+KindMaple	120	KindPacker
+KindCrown	72	KindCobra
+KindTailor	30	KindCrown
+KindLurker	120	KindCobra
+KindCookie	30	KindSunburn
+KindTower	120	KindLurker	KindCookie
+KindVolcano	108	KindMaple
+KindWarrior	156	KindVolcano
+KindTraveler	90	KindPacker
+KindMercury	480	KindTraveler	KindWarrior	KindTower	KindMaple
+KindPrivacy	60	KindMercury	KindTailor	KindLumrk	KindRuler	KindEva
+KindClick	60	KindMaple
+KindNote	60	KindClick
+FrugalShark	40
+FrugalMantis	88	FrugalShark
+FrugalHawk	40
+FrugalLizard	20	FrugalHawk
+FrugalOlympus	140
+FrugalDarling	40	FrugalLizard	FrugalMantis
+FrugalSunburn	80	FrugalDarling	FrugalMantis
+FrugalDigger	60	FrugalMantis	FrugalSunburn
+FrugalOmega	220	FrugalDigger
+FrugalPhoenix	60	FrugalOmega
+FrugalBalboa	180	FrugalDigger
+FrugalGhost	100	FrugalSunburn
+FrugalDasher	120	FrugalGhost
+FrugalCaravan	40	FrugalOmega	FrugalPhoenix	FrugalBalboa	FrugalDasher	FrugalOmega
+FrugalBulldog	60	FrugalCaravan
+FrugalMamba	120	FrugalBulldog
+FrugalLuna	60	FrugalMamba	KindMamba	GlassMamba
+FrugalCobra	100	FrugalLuna
+FrugalPacker	80	FrugalCobra
+FrugalLumrk	55	FrugalPacker
+FrugalLachtan	55	FrugalPacker
+FrugalRuler	55	FrugalPacker
+FrugalEva	55	FrugalPacker
+FrugalGang	55	FrugalPacker
+FrugalStudio	55	FrugalPacker
+FrugalBee	55	FrugalPacker
+FrugalRibbon	55	FrugalPacker
+FrugalMaple	80	FrugalPacker
+FrugalCrown	48	FrugalCobra
+FrugalTailor	20	FrugalCrown
+FrugalLurker	80	FrugalCobra
+FrugalCookie	20	FrugalSunburn
+FrugalTower	80	FrugalLurker	FrugalCookie
+FrugalVolcano	72	FrugalMaple	GlassMaple	KindMaple
+FrugalWarrior	104	FrugalVolcano
+FrugalTraveler	60	FrugalPacker
+FrugalMercury	320	FrugalTraveler	FrugalWarrior	FrugalTower	FrugalMaple	GlassMaple	KindMaple
+FrugalPrivacy	40	FrugalMercury	FrugalTailor	FrugalLachtan	FrugalEva	FrugalBee	FrugalRibbon
+FrugalClick	40	FrugalMaple	GlassMaple	KindMaple
+FrugalNote	40	FrugalClick
+GloriousShark	25
+GloriousMantis	55	GloriousShark
+GloriousHawk	25
+GloriousLizard	12	GloriousHawk
+GloriousOlympus	87
+GloriousDarling	25	GloriousLizard	GloriousMantis
+GloriousSunburn	50	GloriousDarling	GloriousMantis
+GloriousDigger	37	GloriousMantis	GloriousSunburn
+GloriousOmega	137	GloriousDigger
+GloriousPhoenix	37	GloriousOmega
+GloriousBalboa	112	GloriousDigger
+GloriousKnight	112	GloriousDigger
+GloriousGhost	62	GloriousSunburn
+GloriousDasher	75	GloriousGhost
+GloriousCaravan	25	GloriousOmega	GloriousPhoenix	GloriousBalboa	GloriousKnight	GloriousDasher	GloriousOmega
+GloriousBulldog	37	GloriousCaravan
+GloriousMamba	75	GloriousBulldog
+GloriousLuna	37	GloriousMamba	TintedMamba	DeliriousMamba
+GloriousCobra	62	GloriousLuna
+GloriousPacker	50	GloriousCobra
+GloriousMaple	50	GloriousPacker
+GloriousCrown	30	GloriousCobra
+GloriousTailor	12	GloriousCrown
+GloriousLurker	50	GloriousCobra
+GloriousCookie	12	GloriousSunburn
+GloriousTower	50	GloriousLurker	GloriousCookie
+GloriousVolcano	45	GloriousMaple
+GloriousWarrior	65	GloriousVolcano
+GloriousTraveler	37	GloriousPacker
+GloriousMercury	200	GloriousTraveler	GloriousWarrior	GloriousTower	GloriousMaple
+GloriousPrivacy	25	GloriousMercury	GloriousTailor
+GloriousClick	25	GloriousMaple
+GloriousNote	25	GloriousClick
+BlackShark	22
+BlackMantis	48	BlackShark
+BlackHawk	22
+BlackLizard	11	BlackHawk
+BlackOlympus	77
+BlackDarling	22	BlackLizard	BlackMantis
+BlackSunburn	44	BlackDarling	BlackMantis
+BlackDigger	33	BlackMantis	BlackSunburn
+BlackOmega	121	BlackDigger
+BlackPhoenix	33	BlackOmega
+BlackBalboa	99	BlackDigger
+BlackKnight	99	BlackDigger
+BlackGhost	55	BlackSunburn
+BlackDasher	66	BlackGhost
+BlackCaravan	22	BlackOmega	BlackPhoenix	BlackBalboa	BlackKnight	BlackDasher	BlackOmega
+BlackBulldog	33	BlackCaravan
+BlackMamba	66	BlackBulldog
+BlackLuna	33	BlackMamba	BlindMamba	WhiteMamba	DeliriousMamba
+BlackCobra	55	BlackLuna
+BlackPacker	44	BlackCobra
+BlackMaple	44	BlackPacker
+BlackCrown	26	BlackCobra
+BlackTailor	11	BlackCrown
+BlackLurker	44	BlackCobra
+BlackCookie	11	BlackSunburn
+BlackTower	44	BlackLurker	BlackCookie
+BlackTraveler	33	BlackPacker
+BlackMercury	176	BlackTraveler	BlackTower	BlackMaple
+BlackPrivacy	22	BlackMercury	BlackTailor
+BlackClick	22	BlackMaple
+BlackNote	22	BlackClick
+NeedyShark	22
+NeedyMantis	48	NeedyShark
+NeedyHawk	22
+NeedyLizard	11	NeedyHawk
+NeedyOlympus	77
+NeedyDarling	22	NeedyLizard	NeedyMantis
+NeedySunburn	44	NeedyDarling	NeedyMantis
+NeedyDigger	33	NeedyMantis	NeedySunburn
+NeedyOmega	121	NeedyDigger
+NeedyPhoenix	33	NeedyOmega
+NeedyBalboa	99	NeedyDigger
+NeedyGhost	55	NeedySunburn
+NeedyDasher	66	NeedyGhost
+NeedyCaravan	22	NeedyOmega	NeedyPhoenix	NeedyBalboa	NeedyDasher	NeedyOmega
+NeedyBulldog	33	NeedyCaravan
+NeedyMamba	66	NeedyBulldog
+NeedyLuna	33	NeedyMamba	GloriousMamba
+NeedyCobra	55	NeedyLuna
+NeedyPacker	44	NeedyCobra
+NeedyMaple	44	NeedyPacker
+NeedyCrown	26	NeedyCobra
+NeedyTailor	11	NeedyCrown
+NeedyLurker	44	NeedyCobra
+NeedyCookie	11	NeedySunburn
+NeedyTower	44	NeedyLurker	NeedyCookie
+NeedyVolcano	39	NeedyMaple
+NeedyWarrior	57	NeedyVolcano
+NeedyTraveler	33	NeedyPacker
+NeedyMercury	176	NeedyTraveler	NeedyWarrior	NeedyTower	NeedyMaple
+NeedyPrivacy	22	NeedyMercury	NeedyTailor
+NeedyClick	22	NeedyMaple
+NeedyNote	22	NeedyClick
+DeliriousShark	22
+DeliriousMantis	48	DeliriousShark
+DeliriousHawk	22
+DeliriousLizard	11	DeliriousHawk
+DeliriousOlympus	77
+DeliriousDarling	22	DeliriousLizard	DeliriousMantis
+DeliriousSunburn	44	DeliriousDarling	DeliriousMantis
+DeliriousDigger	33	DeliriousMantis	DeliriousSunburn
+DeliriousOmega	121	DeliriousDigger
+DeliriousPhoenix	33	DeliriousOmega
+DeliriousBalboa	99	DeliriousDigger
+DeliriousKnight	99	DeliriousDigger
+DeliriousGhost	55	DeliriousSunburn
+DeliriousDasher	66	DeliriousGhost
+DeliriousCaravan	22	DeliriousOmega	DeliriousPhoenix	DeliriousBalboa	DeliriousKnight	DeliriousDasher	DeliriousOmega
+DeliriousBulldog	33	DeliriousCaravan
+DeliriousMamba	66	DeliriousBulldog
+DeliriousLuna	33	DeliriousMamba	KindMamba	GloriousMamba
+DeliriousCobra	55	DeliriousLuna
+DeliriousPacker	44	DeliriousCobra
+DeliriousMaple	44	DeliriousPacker
+DeliriousCrown	26	DeliriousCobra
+DeliriousTailor	11	DeliriousCrown
+DeliriousLurker	44	DeliriousCobra
+DeliriousCookie	11	DeliriousSunburn
+DeliriousTower	44	DeliriousLurker	DeliriousCookie
+DeliriousVolcano	39	DeliriousMaple
+DeliriousWarrior	57	DeliriousVolcano
+DeliriousTraveler	33	DeliriousPacker
+DeliriousMercury	176	DeliriousTraveler	DeliriousWarrior	DeliriousTower	DeliriousMaple
+DeliriousPrivacy	22	DeliriousMercury	DeliriousTailor
+DeliriousClick	22	DeliriousMaple
+DeliriousNote	22	DeliriousClick
+WhiteShark	12
+WhiteMantis	26	WhiteShark
+WhiteHawk	12
+WhiteLizard	6	WhiteHawk
+WhiteOlympus	42
+WhiteDarling	12	WhiteLizard	WhiteMantis
+WhiteSunburn	24	WhiteDarling	WhiteMantis
+WhiteDigger	18	WhiteMantis	WhiteSunburn
+WhiteOmega	66	WhiteDigger
+WhitePhoenix	18	WhiteOmega
+WhiteBalboa	54	WhiteDigger
+WhiteKnight	54	WhiteDigger
+WhiteGhost	30	WhiteSunburn
+WhiteDasher	36	WhiteGhost
+WhiteCaravan	12	WhiteOmega	WhitePhoenix	WhiteBalboa	WhiteKnight	WhiteDasher	WhiteOmega
+WhiteBulldog	18	WhiteCaravan
+WhiteMamba	36	WhiteBulldog
+WhiteLuna	18	WhiteMamba	BlackMamba	BlindMamba	GlassMamba
+WhiteCobra	30	WhiteLuna
+WhitePacker	24	WhiteCobra
+WhiteMaple	24	WhitePacker
+WhiteCrown	14	WhiteCobra
+WhiteTailor	6	WhiteCrown
+WhiteLurker	24	WhiteCobra
+WhiteCookie	6	WhiteSunburn
+WhiteTower	24	WhiteLurker	WhiteCookie
+WhiteTraveler	18	WhitePacker
+WhiteMercury	96	WhiteTraveler	WhiteTower	WhiteMaple
+WhitePrivacy	12	WhiteMercury	WhiteTailor
+WhiteClick	12	WhiteMaple
+WhiteNote	12	WhiteClick
+SoreShark	18
+SoreMantis	39	SoreShark
+SoreHawk	18
+SoreLizard	9	SoreHawk
+SoreOlympus	63
+SoreDarling	18	SoreLizard	SoreMantis
+SoreSunburn	36	SoreDarling	SoreMantis
+SoreDigger	27	SoreMantis	SoreSunburn	IronSunburn
+SoreOmega	99	SoreDigger
+SorePhoenix	27	SoreOmega
+SoreBalboa	81	SoreDigger
+SoreKnight	81	SoreDigger
+SoreGhost	45	SoreSunburn	IronSunburn
+SoreDasher	54	SoreGhost
+SoreCaravan	18	SoreOmega	SorePhoenix	SoreBalboa	SoreKnight	SoreDasher	SoreOmega
+SoreBulldog	27	SoreCaravan
+SoreMamba	54	SoreBulldog
+SoreLuna	27	SoreMamba	IronMamba	GlassMamba
+SoreCobra	45	SoreLuna
+SorePacker	36	SoreCobra
+SoreMaple	36	SorePacker
+SoreCrown	21	SoreCobra
+SoreTailor	9	SoreCrown
+SoreLurker	36	SoreCobra
+SoreCookie	9	SoreSunburn	IronSunburn
+SoreTower	36	SoreLurker	SoreCookie
+SoreVolcano	32	SoreMaple
+SoreWarrior	46	SoreVolcano
+SoreTraveler	27	SorePacker
+SoreMercury	144	SoreTraveler	SoreWarrior	SoreTower	SoreMaple
+SorePrivacy	18	SoreMercury	SoreTailor
+SoreClick	18	SoreMaple
+SoreNote	18	SoreClick
+IronShark	18
+IronMantis	39	IronShark
+IronHawk	18
+IronLizard	9	IronHawk
+IronOlympus	63
+IronDarling	18	IronLizard	IronMantis
+IronSunburn	36	IronDarling	IronMantis
+IronDigger	27	IronMantis	IronSunburn	SoreSunburn
+IronOmega	99	IronDigger
+IronPhoenix	27	IronOmega
+IronBalboa	81	IronDigger
+IronKnight	81	IronDigger
+IronGhost	45	IronSunburn	SoreSunburn
+IronDasher	54	IronGhost
+IronCaravan	18	IronOmega	IronPhoenix	IronBalboa	IronKnight	IronDasher	IronOmega
+IronBulldog	37	IronCaravan
+IronMamba	54	IronBulldog
+IronLuna	27	IronMamba	SoreMamba	GlassMamba
+IronCobra	45	IronLuna
+IronPacker	36	IronCobra
+IronMaple	36	IronPacker
+IronCrown	21	IronCobra
+IronTailor	9	IronCrown
+IronLurker	36	IronCobra
+IronCookie	9	IronSunburn	SoreSunburn
+IronTower	36	IronLurker	IronCookie
+IronVolcano	32	IronMaple
+IronWarrior	46	IronVolcano
+IronTraveler	27	IronPacker
+IronMercury	144	IronTraveler	IronWarrior	IronTower	IronMaple
+IronPrivacy	18	IronMercury	IronTailor
+IronClick	18	IronMaple
+IronNote	18	IronClick
+TintedShark	20
+TintedMantis	44	TintedShark
+TintedHawk	20
+TintedLizard	10	TintedHawk
+TintedOlympus	70
+TintedDarling	20	TintedLizard	TintedMantis
+TintedSunburn	40	TintedDarling	TintedMantis
+TintedDigger	30	TintedMantis	TintedSunburn
+TintedOmega	110	TintedDigger
+TintedPhoenix	30	TintedOmega
+TintedBalboa	90	TintedDigger
+TintedKnight	90	TintedDigger
+TintedGhost	50	TintedSunburn
+TintedDasher	60	TintedGhost
+TintedCaravan	20	TintedOmega	TintedPhoenix	TintedBalboa	TintedKnight	TintedDasher	TintedOmega
+TintedBulldog	30	TintedCaravan
+TintedMamba	60	TintedBulldog
+TintedLuna	30	TintedMamba	GloriousMamba	FrugalMamba
+TintedCobra	50	TintedLuna
+TintedPacker	40	TintedCobra
+TintedMaple	40	TintedPacker
+TintedCrown	24	TintedCobra
+TintedTailor	10	TintedCrown
+TintedLurker	40	TintedCobra
+TintedCookie	10	TintedSunburn
+TintedTower	40	TintedLurker	TintedCookie
+TintedTraveler	30	TintedPacker
+TintedMercury	160	TintedTraveler	TintedTower	TintedMaple
+TintedPrivacy	20	TintedMercury	TintedTailor
+TintedClick	20	TintedMaple
+TintedNote	20	TintedClick
+Hue	10	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Pu	15	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Oak	15	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Spectator	15	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Angel	10	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Booster	10	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Infinity	10	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Mass	10	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+Storm	10	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy
+God	30	TintedPrivacy	IronPrivacy	SorePrivacy	WhitePrivacy	DeliriousPrivacy	NeedyPrivacy	BlackPrivacy	GloriousPrivacy	LastPrivacy	BlindPrivacy	GlassPrivacy	KindPrivacy	FrugalPrivacy

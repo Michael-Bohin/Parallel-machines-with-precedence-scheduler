@@ -1,0 +1,14 @@
+jobA	10
+jobB	15
+jobC	10	jobA	jobB
+SoreDarling	8	jobC
+WhiteCaravan	5	jobC	SoreDarling
+GlassLurker	12
+IronSunburn	5	LastSunburn
+LastSunburn	10
+GlassTraveler	4
+KindSunburn	8	GlassTraveler
+KindLumrk	10	WhiteCaravan	IronSunburn
+FrugalDarling	2	IronSunburn	GlassTraveler
+SorePrivacy	10	KindLumrk	FrugalDarling
+BlackBalboa	8	jobB 

@@ -1,7 +1,5 @@
-﻿using System.Text;
-using static System.Console;
-using static System.Math;
-
+﻿using static System.Math;
+/*
 class Scheduler {
 	public readonly List<Job> jobs;
 
@@ -18,7 +16,7 @@ class Scheduler {
 	List<int> machinesTime = new();
 	Dictionary<string, int> finnishTimes = new();
 
-	public List<ScheduleUnit> Schedule(List<string> toRecompute) {
+	public List<ScheduleUnit> Schedule(List<int> toRecompute) {
 		allDependencies = toRecompute;
 
 		foreach (Job job in jobs) {
@@ -89,3 +87,4 @@ class Scheduler {
 		schedule.Add(su);
 	}
 }
+*/
