@@ -1,13 +1,13 @@
-# Identical parellel machiens with precedence scheduler
+# Identical parellel machines with precedence scheduler
 
-Benchmark of different aproximation algorithms for P5|prec|Cmax.
+Benchmark of different aproximation algorithms for P5|prec|Cmax problem.
 
-There are 7 algorithms compared in the test. The first two are somewhat trivial. Third to seventh are adaptations of LPT (longest processing time first) algorithm that is known for simpler version of the problem Pm||Cmax. This simpler variant of the problem does not include the precedence of jobs.
+There are 8 algorithms compared in the test. The first two are somewhat trivial. Third to eight are adaptations of LPT (longest processing time first) algorithm that is known for simpler version of the problem Pm||Cmax. This simpler variant of the problem does not include the precedence constraint of jobs.
 
 Therefor the nature of the benchmark is to test various adaptations of known algorithms for the Pm||Cmax problem in the context of more complex P5|prec|Cmax problem. 
 
 1. Naive. Searches all options in exponential time.
-2. Sheduling by layers of sources.
+2. Scheduling by layers of sources.
 3. LPT-sources
 4. LPT-sourcePaths
 5. LPT-allWithSourcePaths
