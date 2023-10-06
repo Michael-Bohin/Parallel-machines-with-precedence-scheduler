@@ -1,20 +1,21 @@
 ﻿using static System.Console;
 
 class JobsLoader {
-	public List<Job> jobs = new();
+	static public List<Job> ReadInput(string filePath) {
+		string[] jobsFile = File.ReadAllLines(filePath);
 
-	public void ReadInput() {
-		string[] jobsFile = File.ReadAllLines("./in/jobs.txt");
-
+		List<Job> jobs = new();
 		foreach(string line in jobsFile) { 
 			Job j = ParseJobLine(line);
 			jobs.Add(j);
 		}
 
-		LogStats();
+		LogStats(jobs);
+
+		return jobs;
 	}
 
-	Job ParseJobLine(string line) {
+	static Job ParseJobLine(string line) {
 		string[] lineItems = line.Split('\t');
 
 		if(lineItems.Length < 2 ) { 
@@ -36,7 +37,7 @@ class JobsLoader {
 		return new(name, duration, dependencies);
 	}
 
-	void LogStats() {
+	static void LogStats(List<Job> jobs) {
 		foreach(Job job in jobs) { 
 			WriteLine($"{job}");	
 		}

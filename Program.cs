@@ -1,14 +1,13 @@
-﻿
-// Load input
-JobsLoader jl = new();
-jl.ReadInput();
+﻿// Load input
+List<Job> jobs = JobsLoader.ReadInput("./in/jobs.txt");
 
 // Task 1
-Scheduler s = new(jl.jobs);
+DependencyCrawler dc = new(jobs);
 List<string> jobsWithError = new() { "WhiteCaravan", "GlassLurker", "IronSunburn", "LastSunburn", "KindSunburn" };
-s.FindErrorDependencies(jobsWithError); 
-s.LogErrorDependencies();
+List<string> toRecompute = dc.FindDependencies(jobsWithError); 
+Logger.Jobs(toRecompute);
 
 // Task 2
-s.ScheduleRecompute(); 
-s.LogResult_2();
+Scheduler s = new(jobs);
+List<ScheduleUnit> schedule = s.Schedule(toRecompute); 
+Logger.Schedule(schedule);
