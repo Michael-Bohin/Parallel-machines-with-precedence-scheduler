@@ -4,26 +4,23 @@
 
 	public List<Job> ReadFile(string file) {
 		string[] jobsFile = File.ReadAllLines($"./../../../in/{file}.txt");
-		List<IntermediateJob> intermediateJobs = new();
 		List<Job> jobs = new();
+		List<List<string>> predecessors = new();
 
 		foreach (string line in jobsFile) {
-			IntermediateJob ij = ParseJobLine(line);
-			intermediateJobs.Add(ij);
-			Job j = new(ij.id, ij.duration);
-			jobs.Add(j);
+			(Job job, List<string> pred) = ParseJobLine(line);
+			jobs.Add(job);
+			predecessors.Add(pred);
 		}
 
-		// All predecessor dependencies are created, add all coresponding successors records
-		foreach (IntermediateJob ij in intermediateJobs) {
-			foreach (string dependency in ij.dependencies) {
-				int pred = dict.NameToId(dependency);
-				int id = ij.id;
+		for (int i = 0; i < jobs.Count; i++) {
+			foreach (string predName in predecessors[i]) {
+				int predId = dict.NameToId(predName);
 
 				// this check is necessary, because large sample size contains jobs with duplicit dependencies
-				if (!jobs[id].ContainsPredecessor(pred)) {
-					jobs[id].AddPredecessor(pred);
-					jobs[pred].AddSuccessor(id);
+				if (!jobs[i].ContainsPredecessor(predId)) {
+					jobs[i].AddPredecessor(predId);
+					jobs[predId].AddSuccessor(i);
 				}
 			}
 		}
@@ -44,7 +41,7 @@
 		return ids;
 	}
 
-	IntermediateJob ParseJobLine(string line) {
+	(Job job, List<string> predecessors) ParseJobLine(string line) {
 		string[] lineItems = line.Split('\t');
 
 		if(lineItems.Length < 2 ) { 
@@ -56,9 +53,11 @@
 		dict.Add(id, name);
 
 		int duration = ParseDuration(lineItems[1]);
+		Job job = new(id, duration);
+
 		List<string> predecessors = ReadDependencies(lineItems);
 
-		return new(id, duration, predecessors);
+		return (job, predecessors);
 	}
 
 	int ParseId(string name) {
