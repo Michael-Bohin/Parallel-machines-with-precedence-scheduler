@@ -8,7 +8,18 @@ class Logger {
 		this.jobsToString = jobsToString;
 	}
 
-	public void Jobs(List<Job> jobs, string fileName) {
+	static void WriteFile(string content, string folderName, string fileName) {
+		string folderPath = $"./out/{folderName}/";
+		if (!Directory.Exists(folderPath)) {
+			Directory.CreateDirectory(folderPath);
+		}
+
+		using StreamWriter sw = new($"{folderPath}{fileName}.txt");
+		sw.WriteLine($"{content}");
+		sw.Close();
+	}
+
+	public void Jobs(List<Job> jobs, string folderName) {
 		StringBuilder sb = new();
 		foreach (Job job in jobs) {
 			sb.AppendLine($"{job.ToString(jobsToString)}");
@@ -16,17 +27,14 @@ class Logger {
 			sb.AppendLine();
 		}
 
-		string total = $"Loaded {jobs.Count} jobs from file {fileName}.";
+		string total = $"Loaded {jobs.Count} jobs from file {folderName}.";
 		sb.AppendLine($"\n{total}");
 
-		using StreamWriter sw = new($"./out/{fileName}/parsedJobs.txt");
-		sw.WriteLine($"{sb}");
-		sw.Close();
-
+		WriteFile(sb.ToString(), folderName, "parsedJobs");
 		WriteLine(total);
 	}
 
-	public void TopSort(TopologicalSort ts, string fileName) {
+	public void TopSort(TopologicalSort ts, string folderName) {
 		StringBuilder sb = new();
 		for(int i = 0; i < ts.jobs.Count; i++) { 
 			string vertex = $"{jobsToString[i]}-{i},";
@@ -42,9 +50,7 @@ class Logger {
 			sb.AppendLine(metadata);
 		}
 
-		using StreamWriter sw = new($"./out/{fileName}/topSort.txt");
-		sw.WriteLine($"{sb}");
-		sw.Close();
+		WriteFile(sb.ToString(), folderName, "topSort");
 	}
 
 	/*public void ToRecompute(List<int> toRecompute) {

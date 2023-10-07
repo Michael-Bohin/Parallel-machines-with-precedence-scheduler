@@ -5,10 +5,11 @@ foreach (string file in inputFileNames) {
 	// Read & parse input
 	JobsParser parser = new();
 	List<Job> jobs = parser.ReadFile(file);
-	List<string> jobsToString = parser.JobsToString(); // Classes DependencyCrawler and Scheduler operate over renamed jobs as ints. Only class Logger needs to know the true name of jobs as string type.
-	Logger logger = new(jobsToString);
+	List<string> idToName = parser.JobsToString(); // Classes DependencyCrawler and Scheduler operate over renamed jobs as ints. Only class Logger needs to know the true name of jobs as string type.
+	Logger logger = new(idToName);
 	logger.Jobs(jobs, file);
 
+	// Assert dependencies graph is acyclic
 	TopologicalSort ts = new(jobs);
 	ts.AssertDAG();
 	logger.TopSort(ts, file);
