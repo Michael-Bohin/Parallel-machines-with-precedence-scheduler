@@ -1,7 +1,8 @@
 ﻿class JobsParser {
 	// Bidirectional dictionary name <-> id
-	readonly List<string> idToName = new(); // id -> name
-	readonly Dictionary<string, int> nameToId = new(); // name -> id
+	/*readonly List<string> idToName = new(); // id -> name
+	readonly Dictionary<string, int> nameToId = new(); // name -> id*/
+	readonly BidirectionalDictionary dict = new();
 	int id = 0;
 
 	public List<Job> ReadFile(string file) {
@@ -19,7 +20,7 @@
 		// All predecessor dependencies are created, add all coresponding successors records
 		foreach (IntermediateJob ij in intermediateJobs) {
 			foreach (string dependency in ij.dependencies) {
-				int pred = nameToId[dependency];
+				int pred = dict.NameToId(dependency);
 				int id = ij.id;
 
 				// this check is necessary, because large sample size contains jobs with duplicit dependencies
@@ -37,7 +38,7 @@
 		return jobs;
 	}
 
-	public List<string> JobsToString() => idToName;
+	public List<string> JobsToString() => dict.GetIdToNameList();
 
 	IntermediateJob ParseJobLine(string line) {
 		string[] lineItems = line.Split('\t');
@@ -48,8 +49,7 @@
 
 		string name = lineItems[0].Trim();
 		int id = ParseId(name);
-		idToName.Add(name);
-		nameToId[name] = id;
+		dict.Add(id, name);
 
 		int duration = ParseDuration(lineItems[1]);
 		List<string> predecessors = ReadDependencies(lineItems);
