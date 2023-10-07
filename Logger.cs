@@ -19,11 +19,32 @@ class Logger {
 		string total = $"Loaded {jobs.Count} jobs from file {fileName}.";
 		sb.AppendLine($"\n{total}");
 
-		using StreamWriter sw = new($"./out/parsedJobs-{fileName}.txt");
+		using StreamWriter sw = new($"./out/{fileName}/parsedJobs.txt");
 		sw.WriteLine($"{sb}");
 		sw.Close();
 
 		WriteLine(total);
+	}
+
+	public void TopSort(TopologicalSort ts, string fileName) {
+		StringBuilder sb = new();
+		for(int i = 0; i < ts.jobs.Count; i++) { 
+			string vertex = $"{jobsToString[i]}-{i},";
+			string metadata = $"\tstate: {ts.state[i]}, in time: {ts.inTime[i]}, out time: {ts.outTime[i]}";
+
+			sb.Append(vertex);
+			if(vertex.Length < 16) {
+				sb.Append('\t');
+			}
+			if(vertex.Length < 8) {
+				sb.Append('\t');
+			}
+			sb.AppendLine(metadata);
+		}
+
+		using StreamWriter sw = new($"./out/{fileName}/topSort.txt");
+		sw.WriteLine($"{sb}");
+		sw.Close();
 	}
 
 	/*public void ToRecompute(List<int> toRecompute) {

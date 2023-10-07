@@ -1,4 +1,4 @@
-﻿string[] inputFileNames = { "smallSample", "jobs" };
+﻿string[] inputFileNames = { "smallSample", "mediumSample" };
 List<string> jobsWithError = new() { "WhiteCaravan", "GlassLurker", "IronSunburn", "LastSunburn", "KindSunburn" };
 
 foreach (string file in inputFileNames) {
@@ -8,6 +8,10 @@ foreach (string file in inputFileNames) {
 	List<string> jobsToString = parser.JobsToString(); // Classes DependencyCrawler and Scheduler operate over renamed jobs as ints. Only class Logger needs to know the true name of jobs as string type.
 	Logger logger = new(jobsToString);
 	logger.Jobs(jobs, file);
+
+	TopologicalSort ts = new(jobs);
+	ts.AssertDAG();
+	logger.TopSort(ts, file);
 
 	// Task 1
 	/*DependencyCrawler dc = new(jobs);
