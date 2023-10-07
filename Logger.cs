@@ -2,10 +2,10 @@
 using static System.Console;
 
 class Logger {
-	public List<string> jobsToString;
+	public List<string> idToName;
 
-	public Logger(List<string> jobsToString) {
-		this.jobsToString = jobsToString;
+	public Logger(List<string> idToName) {
+		this.idToName = idToName;
 	}
 
 	static void WriteFile(string content, string folderName, string fileName) {
@@ -22,22 +22,23 @@ class Logger {
 	public void Jobs(List<Job> jobs, string folderName) {
 		StringBuilder sb = new();
 		foreach (Job job in jobs) {
-			sb.AppendLine($"{job.ToString(jobsToString)}");
+			sb.AppendLine($"{job.ToString(idToName)}");
 			sb.AppendLine($"{job}");
 			sb.AppendLine();
 		}
 
 		string total = $"Loaded {jobs.Count} jobs from file {folderName}.";
 		sb.AppendLine($"\n{total}");
+		string result = sb.ToString();
 
-		WriteFile(sb.ToString(), folderName, "parsedJobs");
+		WriteFile(result, folderName, "parsedJobs");
 		WriteLine(total);
 	}
 
 	public void TopSort(TopologicalSort ts, string folderName) {
 		StringBuilder sb = new();
 		for(int i = 0; i < ts.jobs.Count; i++) { 
-			string vertex = $"{jobsToString[i]}-{i},";
+			string vertex = $"{idToName[i]}-{i},";
 			string metadata = $"\tstate: {ts.state[i]}, in time: {ts.inTime[i]}, out time: {ts.outTime[i]}";
 
 			sb.Append(vertex);
@@ -49,28 +50,31 @@ class Logger {
 			}
 			sb.AppendLine(metadata);
 		}
+		string result = sb.ToString();
 
-		WriteFile(sb.ToString(), folderName, "topSort");
+		WriteFile(result, folderName, "topSort");
 	}
 
-	/*public void ToRecompute(List<int> toRecompute) {
-		toRecompute.Sort(); // requirement from specification to return dependencies sorted
+	public void ToRecompute(List<int> toRecompute, string folderName) {
+		List<string> strToRecompute = new();
+		foreach(int id in toRecompute) {
+			string name = idToName[id];
+			strToRecompute.Add(name);
+		}
+		strToRecompute.Sort(); // requirement from specification to return dependencies sorted
 
 		StringBuilder sb = new();
-		foreach (string dependency in toRecompute) {
+		foreach (string dependency in strToRecompute) {
 			sb.AppendLine(dependency);
 		}
 		string result = sb.ToString();
 
-		using StreamWriter sw = new("./out/toRecompute.txt");
-		sw.WriteLine(result);
-		sw.Close();
+		WriteFile(result, folderName, "toRecompute");
 
-		WriteLine($"\nFound {toRecompute.Count} dependices of jobs with error:");
-		WriteLine(result);
+		WriteLine($"Found {strToRecompute.Count} jobs to be recomputed.");
 	}
 
-	public void Schedule(List<ScheduleUnit> schedule) {
+	/*public void Schedule(List<ScheduleUnit> schedule) {
 		StringBuilder sb = new();
 		foreach (ScheduleUnit unit in schedule) {
 			sb.AppendLine($"{unit}");

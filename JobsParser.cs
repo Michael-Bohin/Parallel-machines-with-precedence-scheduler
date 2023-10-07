@@ -1,7 +1,4 @@
 ﻿class JobsParser {
-	// Bidirectional dictionary name <-> id
-	/*readonly List<string> idToName = new(); // id -> name
-	readonly Dictionary<string, int> nameToId = new(); // name -> id*/
 	readonly BidirectionalDictionary dict = new();
 	int id = 0;
 
@@ -25,9 +22,7 @@
 
 				// this check is necessary, because large sample size contains jobs with duplicit dependencies
 				if (!jobs[id].ContainsPredecessor(pred)) {
-					// set as predecessor:
 					jobs[id].AddPredecessor(pred);
-					// set as successor:
 					jobs[pred].AddSuccessor(id);
 				}
 			}
@@ -39,6 +34,15 @@
 	}
 
 	public List<string> JobsToString() => dict.GetIdToNameList();
+
+	public List<int> NamesToIds(List<string> names) {
+		List<int> ids = new();
+		foreach (string name in names) {
+			int id = dict.NameToId(name);
+			ids.Add(id);
+		}
+		return ids;
+	}
 
 	IntermediateJob ParseJobLine(string line) {
 		string[] lineItems = line.Split('\t');
@@ -114,5 +118,4 @@
 		}
 	}
 #endif
-
 }
