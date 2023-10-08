@@ -22,7 +22,19 @@ foreach (string file in inputFileNames) {
 	logger.ToRecompute(toRecompute, file);
 
 	// Task 2
-	TSL tsl = new(jobs, machineCount);
-	List<ScheduleUnit> schedule = tsl.Schedule(toRecompute);
-	logger.Schedule(schedule, file);
+	List<Scheduler> schedulers = new() {
+		new TSL(jobs, machineCount),
+		new LPTsources(jobs, machineCount)
+	};
+
+	foreach(Scheduler s in schedulers) {
+		HashSet<int> copy = new();
+		foreach(int id in toRecompute) {
+			copy.Add(id);
+		}
+		List<ScheduleUnit> schedule = s.Schedule(copy);
+		logger.Schedule(schedule, file, s.AlgoName, s.Makespan);
+	}
+
+	Console.WriteLine();
 }

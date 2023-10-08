@@ -7,6 +7,9 @@ abstract class Scheduler {
 	protected readonly MachineAllocator alloc;
 	protected readonly List<ScheduleState> state = new();
 	protected readonly Dictionary<int, int> finnishTime = new(); // Key: jobId, Value: it's finnish time in schedule
+	public int Makespan { get; protected set; }
+
+	public abstract string AlgoName { get; }
 
 	protected abstract void DecideSchedulingPermutation(HashSet<int> toRecompute, List<ScheduleUnit> schedule);
 
@@ -26,9 +29,9 @@ abstract class Scheduler {
 			state[id] = ScheduleState.Waiting;	
 		}
 
-		while(toRecompute.Count > 0) {
-			DecideSchedulingPermutation(toRecompute, schedule);
-		}
+		DecideSchedulingPermutation(toRecompute, schedule);
+
+		RecordMakespan();
 
 		return schedule;
 	}
@@ -55,5 +58,13 @@ abstract class Scheduler {
 
 		ScheduleUnit su = new(startTime, job.id, machineId);
 		return su;
+	}
+
+	void RecordMakespan() {
+		int max = int.MinValue;
+		foreach(int ft in finnishTime.Values) {
+			max = Math.Max(max, ft);
+		}
+		Makespan = max;
 	}
 }
