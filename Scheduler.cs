@@ -1,6 +1,4 @@
-﻿using static System.Math;
-
-enum ScheduleState {
+﻿enum ScheduleState {
 	Computed, Waiting, Scheduled
 }
 
@@ -12,7 +10,7 @@ class Scheduler {
 
 	public Scheduler(List<Job> jobs, int machineCount) {
 		this.jobs = jobs;
-		alloc = new(machineCount); // allocate with 5 machines
+		alloc = new(machineCount);
 
 		for (int i = 0; i < jobs.Count; i++) {
 			state.Add(ScheduleState.Computed);
@@ -63,7 +61,7 @@ class Scheduler {
 		int minStart = int.MinValue;
 		foreach(int pred in job.predecessors) {
 			if (state[pred] == ScheduleState.Scheduled) {
-				minStart = Max(minStart, finnishTime[pred]);
+				minStart = Math.Max(minStart, finnishTime[pred]);
 			}
 		}
 
