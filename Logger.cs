@@ -55,7 +55,7 @@ class Logger {
 		WriteFile(result, folderName, "topSort");
 	}
 
-	public void ToRecompute(List<int> toRecompute, string folderName) {
+	public void ToRecompute(HashSet<int> toRecompute, string folderName) {
 		List<string> strToRecompute = new();
 		foreach(int id in toRecompute) {
 			string name = idToName[id];
@@ -74,19 +74,16 @@ class Logger {
 		WriteLine($"Found {strToRecompute.Count} jobs to be recomputed.");
 	}
 
-	/*public void Schedule(List<ScheduleUnit> schedule) {
+	public void Schedule(List<ScheduleUnit> schedule, string folderName) {
 		StringBuilder sb = new();
-		foreach (ScheduleUnit unit in schedule) {
-			sb.AppendLine($"{unit}");
+		foreach (ScheduleUnit su in schedule) {
+			string line = su.ToString(idToName);
+			sb.AppendLine(line);
 		}
 		string result = sb.ToString();
 
-		using StreamWriter sw = new("./out/scheduler.txt");
-		sw.WriteLine(result);
-		sw.Close();
-
-		WriteLine($"\nSchedules tasks: {schedule.Count}");
-		WriteLine(result);
-	}*/
+		WriteFile(result, folderName, "schedule");
+		WriteLine($"Scheduled {schedule.Count} tasks.\n");
+	}
 }
 

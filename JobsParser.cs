@@ -14,8 +14,8 @@
 		}
 
 		for (int i = 0; i < jobs.Count; i++) {
-			foreach (string predName in predecessors[i]) {
-				int predId = dict.NameToId(predName);
+			foreach (string pred in predecessors[i]) {
+				int predId = dict.NameToId(pred);
 
 				// this check is necessary, because large sample size contains jobs with duplicit dependencies
 				if (!jobs[i].ContainsPredecessor(predId)) {
@@ -32,8 +32,8 @@
 
 	public List<string> JobsToString() => dict.GetIdToNameList();
 
-	public List<int> NamesToIds(List<string> names) {
-		List<int> ids = new();
+	public HashSet<int> NamesToIds(List<string> names) {
+		HashSet<int> ids = new();
 		foreach (string name in names) {
 			int id = dict.NameToId(name);
 			ids.Add(id);
@@ -92,8 +92,6 @@
 		// 1. All jobs are at the index of their name
 		// 2. Foreach predecessor record, counterpart successor record exists
 		// 3. Foreach successor record, counterpart predecessor record exists
-		Console.WriteLine("Assert correctnes in debug mode");
-
 		for (int i = 0; i < jobs.Count; i++) {
 			if(i != jobs[i].id) {
 				throw new ArgumentException($"JobsLoader.AssertCorrectnes() : Some job is not at the index of it's name. Index: {i}, name: {jobs[i].id}.");

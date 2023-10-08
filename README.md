@@ -1,3 +1,21 @@
+<style>
+        .green {
+            color: rgb(78, 201, 176);
+        }
+
+        .lblue {
+            color: rgb(156, 220, 254);
+        }
+
+        .dblue {
+            color: rgb(77, 156, 214);
+        }
+
+        <span class="green"></span>
+        <span class="lblue"></span>
+        <span class="dblue"></span>
+</style>
+
 # Identical parellel machines with precedence scheduler
 
 Benchmark of different aproximation algorithms for P5|prec|Cmax problem.
@@ -17,17 +35,9 @@ Therefor the nature of the benchmark is to test various adaptations of known alg
 
 ## Scheduling by layers of sources
 
-0. initiate machines times
-1. Create hashset Jobs of jobs to recompute
-2. while Jobs is nonempty:
-3. 		create empty list of jobs "layer"
-4. 		foreach job j in Jobs:
-5. 			if(all dependencies of j have finnished):
-6. 				remove j from Jobs
-7. 				add j to layer		
-8.		foreach job k in layer
-9. 			schedule k 
-10. print output
+Input: <span class="green">List</span>\<<span class="green">Job</span>> <span class="lblue">jobs</span>, <span class="green">HashSet</span>\<<span class="dblue">int</span>> <span class="lblue">toRecompute</span>
+
+
 
 ## Naive
 

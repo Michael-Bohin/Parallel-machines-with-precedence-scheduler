@@ -1,16 +1,19 @@
-﻿class ScheduleUnit {
+﻿struct ScheduleUnit {
 	public int time;
-	public string name;
+	public int jobId;
 	public int machineId;
 
-	public ScheduleUnit(int time, string name, int machineId) {
+	public ScheduleUnit(int time, int jobId, int machineId) {
 		this.time = time;
-		this.name = name;
+		this.jobId = jobId;
 		this.machineId = machineId;
 	}
 
 	public override string ToString() {
-		return $"{time}\t{name}\t{machineId}";
+		return $"{time}\t{jobId}\t{machineId}";
+	}
+
+	public string ToString(List<string> idToName) {
+		return $"{time}\t{idToName[jobId]}\t{machineId}";
 	}
 }
-

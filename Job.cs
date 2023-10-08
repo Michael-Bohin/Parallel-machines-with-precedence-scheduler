@@ -5,6 +5,7 @@ class Job {
 	public readonly int duration;
 	public readonly List<int> predecessors = new();
 	public readonly List<int> successors = new();
+	public bool scheduled = false;
 
 	public Job(int id, int duration) {
 		this.id = id;

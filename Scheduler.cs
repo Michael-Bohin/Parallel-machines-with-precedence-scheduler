@@ -1,90 +1,75 @@
 ﻿using static System.Math;
-/*
-class Scheduler {
-	public readonly List<Job> jobs;
 
-	public Scheduler(List<Job> jobs) {
+enum ScheduleState {
+	Computed, Waiting, Scheduled
+}
+
+class Scheduler {
+	readonly List<Job> jobs;
+	readonly MachineAllocator alloc;
+	readonly List<ScheduleState> state = new();
+	readonly Dictionary<int, int> finnishTime = new(); // Key: jobId, Value: it's finnish time in schedule
+
+	public Scheduler(List<Job> jobs, int machineCount) {
 		this.jobs = jobs;
+		alloc = new(machineCount); // allocate with 5 machines
+
+		for (int i = 0; i < jobs.Count; i++) {
+			state.Add(ScheduleState.Computed);
+		}
 	}
 
-	// Task 1 results
-	List<string> allDependencies = new();
-	Dictionary<string, Job> jobsMap = new();
+	public List<ScheduleUnit> Schedule(HashSet<int> toRecompute) {
+		List<ScheduleUnit> schedule = new();
 
-	// Task 2 results
-	List<ScheduleUnit> schedule = new();
-	List<int> machinesTime = new();
-	Dictionary<string, int> finnishTimes = new();
-
-	public List<ScheduleUnit> Schedule(List<int> toRecompute) {
-		allDependencies = toRecompute;
-
-		foreach (Job job in jobs) {
-			jobsMap[job.name] = job;
+		foreach(int id in toRecompute) {
+			state[id] = ScheduleState.Waiting;	
 		}
 
-		// 0. Jobs from pseudocode is now allDependencies (and not a set but list)
-		// 0. 
-		for (int i = 0; i < 5; i++) {
-			machinesTime.Add(0);
-		}
-
-		while(allDependencies.Count > 0) { // 1
-			List<string> layer = new(); // 2
-			foreach(string j in allDependencies) { // 3
-				if(DependenciesFinnished(j)) { // 4
-					layer.Add(j); // 6
+		while(toRecompute.Count > 0) {
+			HashSet<int> layer = new();
+			foreach(int i in toRecompute) {
+				if(DependenciesScheduled(i)) {
+					layer.Add(i);
 				}
 			}
 
-			foreach(string k in layer) { // 5a
-				allDependencies.Remove(k); // 5b
+			foreach(int j in layer) {
+				toRecompute.Remove(j);	
 			}
 
-			foreach(string k in layer) { // 7
-				Schedule(jobsMap[k]); // 8
+			foreach(int k in layer) { 
+				ScheduleUnit su = Schedule(jobs[k]);
+				schedule.Add(su);
+				state[k] = ScheduleState.Scheduled;
+				finnishTime[k] = su.time + jobs[k].duration;
 			}
 		}
 
 		return schedule;
 	}
 
-	bool DependenciesFinnished(string name) {
-		foreach(string dependency in jobsMap[name].dependencies) {
-			if(allDependencies.Contains(dependency)) {
+	bool DependenciesScheduled(int id) {
+		foreach(int pred in jobs[id].predecessors) {
+			if (state[pred] == ScheduleState.Waiting) { // computed or scheduled state of dependency is OK
 				return false;
 			}
 		}
-
 		return true;
 	}
 
-	void Schedule(Job job) { 
-		int minTime = int.MaxValue;
-		int machineId = -1;
-		for(int i = 0; i < 5; i++) {
-			int time = machinesTime[i];
-			if(time < minTime) { 
-				minTime = time;
-				machineId = i;
+	ScheduleUnit Schedule(Job job) {
+		// Get earliest time the job can be scheduled relative to its dependencies:
+		int minStart = int.MinValue;
+		foreach(int pred in job.predecessors) {
+			if (state[pred] == ScheduleState.Scheduled) {
+				minStart = Max(minStart, finnishTime[pred]);
 			}
 		}
 
-		// check that all dependencies finnished
-		// in case some are still running, shift the schedule time, after the maximum of finnishing times of all dependencies:
-		int startTime = minTime;
-		foreach(string dependency in job.dependencies) {
-			int dependencyFinnishTime = finnishTimes[dependency];
-			startTime = Max(startTime, dependencyFinnishTime);
-		}
+		(int startTime, int machineId) = alloc.GetBlock(minStart, job.duration);
 
-		// increment time on scheduled machine:
-		int endTime = startTime + job.duration;
-		machinesTime[machineId] = endTime;
-		finnishTimes[job.name] = endTime;
-
-		ScheduleUnit su = new(startTime, job.name, machineId);
-		schedule.Add(su);
+		ScheduleUnit su = new(startTime, job.id, machineId);
+		return su;
 	}
 }
-*/
