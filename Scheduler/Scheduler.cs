@@ -67,4 +67,12 @@ abstract class Scheduler {
 		}
 		Makespan = max;
 	}
+
+	protected void ScheduleJob(int id, List<ScheduleUnit> schedule) {
+		Job next = jobs[id];
+		ScheduleUnit su = Schedule(next);
+		schedule.Add(su);
+		state[id] = ScheduleState.Scheduled;
+		finnishTime[id] = su.time + jobs[id].duration;
+	}
 }

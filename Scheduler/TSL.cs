@@ -19,10 +19,7 @@ class TSL : Scheduler {
 			}
 
 			foreach (int k in layer) {
-				ScheduleUnit su = Schedule(jobs[k]);
-				schedule.Add(su);
-				state[k] = ScheduleState.Scheduled;
-				finnishTime[k] = su.time + jobs[k].duration;
+				ScheduleJob(k, schedule);			
 			}
 		}
 	}

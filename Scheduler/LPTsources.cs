@@ -16,12 +16,8 @@
 				}
 			}
 
-			int nextId = prioQueue.Dequeue();
-			Job next = jobs[nextId];
-			ScheduleUnit su = Schedule(next);
-			schedule.Add(su);
-			state[nextId] = ScheduleState.Scheduled;
-			finnishTime[nextId] = su.time + jobs[nextId].duration;
+			int id = prioQueue.Dequeue();
+			ScheduleJob(id, schedule);
 		}
 	}
 }
