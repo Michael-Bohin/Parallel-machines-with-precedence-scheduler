@@ -64,7 +64,6 @@
 		return sourcePaths;
 	}
 
-
 	// Subroutine's algorithm:
 	// 1. Create List<int> source path and append source to it
 	// 2. Add source to idsInLayer
@@ -132,16 +131,3 @@
 		return true;
 	}
 }
-
-// LCPTfixedPaths -> create a set of disjoint paths in the topological sort
-// track their sources and check the set of schedulable sources on those paths in cycles
-// prioritize schedulable sources in longest critical paths
-// key question how do I choose the permutation of disjoint paths in the topological sort?
-//		1st idea: find the longest cp and cut it off, then again find the next longest cp in the complement
-
-
-// LCPTdozer
-// Find the lcp 
-// Start scheduling it from its source, when you meet a branch that needs to be resolved first, call on its entire dependency subtree recursively
-// Repeat for complement after resolving initial lcp and its dependent branches
-
