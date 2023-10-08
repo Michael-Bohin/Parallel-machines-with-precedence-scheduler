@@ -4,7 +4,7 @@
 	public override string AlgoName { get => nameof(LPTsources); }
 
 	protected override void DecideSchedulingPermutation(HashSet<int> toRecompute, List<ScheduleUnit> schedule) {
-		DurationComparer dc = new();
+		DescendingDurationComparer dc = new();
 		PriorityQueue<int, int> prioQueue = new(dc);
 
 		while(toRecompute.Count > 0 || prioQueue.Count > 0) {

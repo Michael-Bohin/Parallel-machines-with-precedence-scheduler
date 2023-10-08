@@ -24,7 +24,8 @@ foreach (string file in inputFileNames) {
 	// Task 2
 	List<Scheduler> schedulers = new() {
 		new TSL(jobs, machineCount),
-		new LPTsources(jobs, machineCount)
+		new LPTsources(jobs, machineCount),
+		new LPTsourcePathLayers(jobs, machineCount)
 	};
 
 	foreach(Scheduler s in schedulers) {

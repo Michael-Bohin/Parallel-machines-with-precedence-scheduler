@@ -7,19 +7,13 @@ class TSL : Scheduler {
 
 	protected override void DecideSchedulingPermutation(HashSet<int> toRecompute, List<ScheduleUnit> schedule) {
 		while (toRecompute.Count > 0) {
-			HashSet<int> layer = new();
-			foreach (int i in toRecompute) {
-				if (DependenciesScheduled(i)) {
-					layer.Add(i);
-				}
+			HashSet<int> layer = FindAllSources(toRecompute);
+			foreach (int id in layer) {
+				toRecompute.Remove(id);
 			}
 
-			foreach (int j in layer) {
-				toRecompute.Remove(j);
-			}
-
-			foreach (int k in layer) {
-				ScheduleJob(k, schedule);			
+			foreach (int id in layer) {
+				ScheduleJob(id, schedule);			
 			}
 		}
 	}

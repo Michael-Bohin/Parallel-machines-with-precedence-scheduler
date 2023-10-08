@@ -75,4 +75,14 @@ abstract class Scheduler {
 		state[id] = ScheduleState.Scheduled;
 		finnishTime[id] = su.time + jobs[id].duration;
 	}
+
+	protected HashSet<int> FindAllSources(HashSet<int> toRecompute) {
+		HashSet<int> layer = new();
+		foreach (int i in toRecompute) {
+			if (DependenciesScheduled(i)) {
+				layer.Add(i);
+			}
+		}
+		return layer;
+	}
 }
