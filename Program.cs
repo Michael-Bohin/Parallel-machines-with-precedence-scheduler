@@ -22,7 +22,7 @@ foreach (string file in inputFileNames) {
 	logger.ToRecompute(toRecompute, file);
 
 	// Task 2
-	Scheduler s = new(jobs, machineCount);
-	List<ScheduleUnit> schedule = s.Schedule(toRecompute);
+	TSL tsl = new(jobs, machineCount);
+	List<ScheduleUnit> schedule = tsl.Schedule(toRecompute);
 	logger.Schedule(schedule, file);
 }

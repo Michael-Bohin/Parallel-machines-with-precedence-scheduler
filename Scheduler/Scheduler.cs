@@ -2,11 +2,13 @@
 	Computed, Waiting, Scheduled
 }
 
-class Scheduler {
-	readonly List<Job> jobs;
-	readonly MachineAllocator alloc;
-	readonly List<ScheduleState> state = new();
-	readonly Dictionary<int, int> finnishTime = new(); // Key: jobId, Value: it's finnish time in schedule
+abstract class Scheduler {
+	protected readonly List<Job> jobs;
+	protected readonly MachineAllocator alloc;
+	protected readonly List<ScheduleState> state = new();
+	protected readonly Dictionary<int, int> finnishTime = new(); // Key: jobId, Value: it's finnish time in schedule
+
+	protected abstract void DecideSchedulingPermutation(HashSet<int> toRecompute, List<ScheduleUnit> schedule);
 
 	public Scheduler(List<Job> jobs, int machineCount) {
 		this.jobs = jobs;
@@ -25,29 +27,13 @@ class Scheduler {
 		}
 
 		while(toRecompute.Count > 0) {
-			HashSet<int> layer = new();
-			foreach(int i in toRecompute) {
-				if(DependenciesScheduled(i)) {
-					layer.Add(i);
-				}
-			}
-
-			foreach(int j in layer) {
-				toRecompute.Remove(j);	
-			}
-
-			foreach(int k in layer) { 
-				ScheduleUnit su = Schedule(jobs[k]);
-				schedule.Add(su);
-				state[k] = ScheduleState.Scheduled;
-				finnishTime[k] = su.time + jobs[k].duration;
-			}
+			DecideSchedulingPermutation(toRecompute, schedule);
 		}
 
 		return schedule;
 	}
 
-	bool DependenciesScheduled(int id) {
+	protected bool DependenciesScheduled(int id) {
 		foreach(int pred in jobs[id].predecessors) {
 			if (state[pred] == ScheduleState.Waiting) { // computed or scheduled state of dependency is OK
 				return false;
@@ -56,7 +42,7 @@ class Scheduler {
 		return true;
 	}
 
-	ScheduleUnit Schedule(Job job) {
+	protected ScheduleUnit Schedule(Job job) {
 		// Get earliest time the job can be scheduled relative to its dependencies:
 		int minStart = int.MinValue;
 		foreach(int pred in job.predecessors) {
