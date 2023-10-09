@@ -21,17 +21,3 @@
 		}
 	}
 }
-
-/* Template for more descendants:
-  
-class LPTsources : Scheduler {
-	public LPTsources(List<Job> job, int machineCount) : base(job, machineCount) { }
-
-	public override string AlgoName { get => nameof(); }
-
-	protected override void DecideSchedulingPermutation(HashSet<int> toRecompute, List<ScheduleUnit> schedule) {
-		throw new NotImplementedException();
-	}
-}
-
-*/

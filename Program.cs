@@ -25,7 +25,8 @@ foreach (string file in inputFileNames) {
 	List<Scheduler> schedulers = new() {
 		new TSL(jobs, machineCount),
 		new LPTsources(jobs, machineCount),
-		new LPTsourcePathLayers(jobs, machineCount)
+		new LPTsourcePathLayers(jobs, machineCount),
+		new SimpleProbability(jobs, machineCount)
 	};
 
 	foreach(Scheduler s in schedulers) {
