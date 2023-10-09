@@ -5,9 +5,13 @@
 abstract class Scheduler {
 	protected readonly List<Job> jobs;
 	protected readonly MachineAllocator alloc;
+	private readonly int machineCount;
 	protected readonly List<ScheduleState> state = new();
 	protected readonly Dictionary<int, int> finnishTime = new(); // Key: jobId, Value: it's finnish time in schedule
-	public int Makespan { get; protected set; }
+	public int Makespan { get; private set; }
+	public int TotalJobsDuration { get; private set; }
+	public int MakespanArea { get; private set; }
+	public double MachinesUsage { get; private set;}
 
 	public abstract string AlgoName { get; }
 
@@ -15,6 +19,7 @@ abstract class Scheduler {
 
 	public Scheduler(List<Job> jobs, int machineCount) {
 		this.jobs = jobs;
+		this.machineCount = machineCount;
 		alloc = new(machineCount);
 
 		for (int i = 0; i < jobs.Count; i++) {
@@ -31,7 +36,7 @@ abstract class Scheduler {
 
 		DecideSchedulingPermutation(toRecompute, schedule);
 
-		RecordMakespan();
+		RecordPerformance(schedule);
 
 		return schedule;
 	}
@@ -60,12 +65,24 @@ abstract class Scheduler {
 		return su;
 	}
 
-	void RecordMakespan() {
+	void RecordPerformance(List<ScheduleUnit> schedule) {
 		int max = int.MinValue;
 		foreach(int ft in finnishTime.Values) {
 			max = Math.Max(max, ft);
 		}
 		Makespan = max;
+
+		int sum = 0;
+		foreach(ScheduleUnit unit in schedule) {
+			int id = unit.jobId;
+			Job job = jobs[id];
+			sum += job.duration;
+		}
+		TotalJobsDuration = sum;
+
+		MakespanArea = Makespan * machineCount;
+
+		MachinesUsage = ((double) TotalJobsDuration / MakespanArea)* 100.0;
 	}
 
 	protected void ScheduleJob(int id, List<ScheduleUnit> schedule) {

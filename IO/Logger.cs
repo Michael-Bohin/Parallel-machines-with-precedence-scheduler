@@ -74,9 +74,9 @@ class Logger {
 		WriteLine($"Found {strToRecompute.Count} jobs to be recomputed.");
 	}
 
-	public void Schedule(List<ScheduleUnit> schedule, string folderName, string algoName, int makespan) {
+	public void Schedule(List<ScheduleUnit> schedule, string folderName, string algoName, int makespan, int sumJobsDuration, int makespanArea, double machinesUsage) {
 		StringBuilder sb = new();
-		string makespanLog = $"Achieved makespan {makespan}.";
+		string makespanLog = $"Makespan {makespan}. Jobs' duration: {sumJobsDuration}, makespan area: {makespanArea}, machines' usage: {machinesUsage:F2} %.";
 		sb.AppendLine($"{makespanLog}\n");
 		foreach (ScheduleUnit su in schedule) {
 			string line = su.ToString(idToName);

@@ -34,7 +34,7 @@ foreach (string file in inputFileNames) {
 			copy.Add(id);
 		}
 		List<ScheduleUnit> schedule = s.Schedule(copy);
-		logger.Schedule(schedule, file, s.AlgoName, s.Makespan);
+		logger.Schedule(schedule, file, s.AlgoName, s.Makespan, s.TotalJobsDuration, s.MakespanArea, s.MachinesUsage);
 	}
 
 	Console.WriteLine();
