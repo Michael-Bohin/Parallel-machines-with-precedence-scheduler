@@ -77,7 +77,7 @@ class Logger {
 	public void Schedule(List<ScheduleUnit> schedule, string folderName, string algoName, int makespan, int sumJobsDuration, int makespanArea, double machinesUsage) {
 		StringBuilder sb = new();
 		string makespanLog = $"Makespan {makespan}. Jobs' duration: {sumJobsDuration}, makespan area: {makespanArea}, machines' usage: {machinesUsage:F2} %.";
-		sb.AppendLine($"{makespanLog}\n");
+		sb.AppendLine($"{makespanLog} \n ");
 		foreach (ScheduleUnit su in schedule) {
 			string line = su.ToString(idToName);
 			sb.AppendLine(line);
